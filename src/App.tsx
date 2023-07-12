@@ -1,12 +1,14 @@
 import './App.css';
+import Footer from './Components/Footer';
+import Header from './Components/Header';
+import List from './Components/List';
 
 function App() {
   return (
     <>
-      <header>
-        <h1>MARVEL</h1>
-      </header>
-      <footer>Made by Guillem Sardà Parreu</footer>
+      <Header />
+      <List />
+      <Footer />
     </>
   );
 }
