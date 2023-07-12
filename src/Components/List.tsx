@@ -7,6 +7,7 @@ import { ImageList, ImageListItem, Pagination } from '@mui/material';
 
 function List() {
   const [characters, setCharacters] = useState<ISimpleChar[]>(mockChars);
+  const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
     /*
@@ -17,12 +18,17 @@ function List() {
       })
       .catch((err) => console.error('In List:', err));*/
   }, []);
+
+  function handleChange(e: React.ChangeEvent<unknown>, pageNum: number) {
+    setPage(pageNum);
+  }
+
   return (
-    <>
-      <ImageList sx={{ width: '80%', height: '80%' }} cols={4} rowHeight={500}>
+    <main className="list-container">
+      <ImageList sx={{ width: '80%' }} cols={5} rowHeight={100}>
         {characters.map((ch) => {
           return (
-            <ImageListItem key={ch.id}>
+            <ImageListItem key={ch.id} style={{ height: '100%' }}>
               <img
                 src={`${ch.thumbnail.path}.${ch.thumbnail.extension}`}
                 onClick={() => console.log('hey')}
@@ -32,8 +38,16 @@ function List() {
           );
         })}
       </ImageList>
-      <Pagination />
-    </>
+      <Pagination
+        color="secondary"
+        page={page}
+        onChange={handleChange}
+        count={10}
+        size="large"
+        sx={{ marginTop: '10px' }}
+        variant="outlined"
+      />
+    </main>
   );
 }
 

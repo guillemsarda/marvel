@@ -1,3 +1,11 @@
+.list-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .list-item__header {
   position: absolute;
   bottom: 0;
@@ -5,4 +13,22 @@
   left: 0;
   text-align: center;
   background-color: transparent;
+}
+
+.MuiPagination-outlined ul li * {
+  color: white;
+  border-color: white;
+}
+
+.MuiPagination-outlined ul li button:hover {
+  background-color: rgba(236, 29, 36, 0.5);
+}
+
+.MuiPagination-outlined
+  ul
+  li
+  .css-1j4k3n5-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  background-color: var(--red);
+  color: white;
+  border-color: white;
 }

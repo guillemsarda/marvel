@@ -1,0 +1,14 @@
+footer {
+  height: 10vh;
+  text-align: center;
+}
+
+footer h3 {
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin-bottom: 15px;
+  font-weight: 300;
+}
