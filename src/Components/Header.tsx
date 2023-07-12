@@ -3,7 +3,8 @@ import './Header.css';
 function Header() {
   return (
     <header>
-      <h1>MARVEL</h1>
+      <img src="./Marvel_Logo.svg" height={'70%'} />
+      <h1>Wiki</h1>
     </header>
   );
 }

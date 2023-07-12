@@ -2,51 +2,68 @@ import './List.css';
 import { useEffect, useState } from 'react';
 import { ISimpleChar } from '../Interfaces';
 import { mockChars } from '../utils/mocks';
-import { ImageList, ImageListItem, Pagination } from '@mui/material';
-// import { getChars } from '../utils/ApiService';
+import { CircularProgress, ImageList, Pagination } from '@mui/material';
+import { getChars } from '../utils/ApiService';
+import ListItem from './ListItem';
 
-function List() {
+type ListProps = {
+  setError: React.Dispatch<React.SetStateAction<string | null>>;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  loading: boolean;
+  open: boolean;
+};
+
+function List({ setError, setLoading, loading, setOpen, open }: ListProps) {
   const [characters, setCharacters] = useState<ISimpleChar[]>(mockChars);
+  const [total, setTotal] = useState<number>(0);
   const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
-    /*
-    getChars()
-      .then((res) => {
-        if (!res.data) return Promise.reject(res.error);
-        setCharacters(res.data);
-      })
-      .catch((err) => console.error('In List:', err));*/
-  }, []);
+    // getChars(page - 1)
+    //   .then((res) => {
+    //     if (!res.data) return Promise.reject(res.error);
+    //     setCharacters(res.data.characters);
+    //     setTotal(Math.floor(res.data.total / 20));
+    //   })
+    //   .catch(setError)
+    //   .finally(() => setLoading(false));
+    setTimeout(() => setLoading(false), 500);
+  }, [page, setLoading, setError]);
 
   function handleChange(e: React.ChangeEvent<unknown>, pageNum: number) {
     setPage(pageNum);
   }
 
   return (
-    <main className="list-container">
-      <ImageList sx={{ width: '80%' }} cols={5} rowHeight={100}>
-        {characters.map((ch) => {
-          return (
-            <ImageListItem key={ch.id} style={{ height: '100%' }}>
-              <img
-                src={`${ch.thumbnail.path}.${ch.thumbnail.extension}`}
-                onClick={() => console.log('hey')}
-              />
-              <h1 className="list-item__header">{ch.name}</h1>
-            </ImageListItem>
-          );
-        })}
-      </ImageList>
-      <Pagination
-        color="secondary"
-        page={page}
-        onChange={handleChange}
-        count={10}
-        size="large"
-        sx={{ marginTop: '10px' }}
-        variant="outlined"
-      />
+    <main
+      className="list-container"
+      style={{
+        filter: open ? 'blur(10px)' : '',
+        pointerEvents: open ? 'none' : undefined,
+      }}
+    >
+      <button onClick={() => setOpen(true)}>HEEEY</button>
+      {loading ? (
+        <CircularProgress />
+      ) : (
+        <>
+          <ImageList sx={{ width: '80%' }} cols={5} rowHeight={100}>
+            {characters.map((ch) => {
+              return <ListItem character={ch} key={ch.id} />;
+            })}
+          </ImageList>
+          <Pagination
+            color="secondary"
+            page={page}
+            onChange={handleChange}
+            count={total}
+            size="large"
+            sx={{ marginTop: '10px' }}
+            variant="outlined"
+          />
+        </>
+      )}
     </main>
   );
 }

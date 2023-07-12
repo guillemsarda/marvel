@@ -21,7 +21,7 @@ async function genHash(ts: number) {
   }
 }
 
-async function getChars() {
+async function getChars(page: number) {
   try {
     const ts = Date.now();
     const hash = await genHash(ts);
@@ -30,14 +30,16 @@ async function getChars() {
       return { data: null, error: 'Error when getting the characters' };
 
     const res = await fetch(
-      `https://gateway.marvel.com:443/v1/public/characters?ts=${ts}&apikey=${pubKey}&hash=${hash}`
+      `https://gateway.marvel.com:443/v1/public/characters?orderBy=modified&offset=${
+        page * 20
+      }ts=${ts}&apikey=${pubKey}&hash=${hash}`
     );
     const data = (await res.json()) as IMarvelResponse | IErrorResponse;
 
     if (data.code > 400) throw new Error(data.status);
 
     let characters: ISimpleChar[] = [];
-
+    let total = 0;
     if ('data' in data) {
       characters = data.data.results.map((char) => {
         const newChar = {
@@ -47,9 +49,10 @@ async function getChars() {
         };
         return newChar;
       });
+      total = data.data.total;
     }
 
-    return { data: characters, error: null };
+    return { data: { characters, total }, error: null };
   } catch (error) {
     if (error instanceof Error) console.error(error.message);
     return { data: null, error: 'Error when getting the characters' };
