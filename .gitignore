@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 
 hash.ts
+mocks.ts

@@ -1,0 +1,8 @@
+.list-item__header {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  background-color: transparent;
+}
