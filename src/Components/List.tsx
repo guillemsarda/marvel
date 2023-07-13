@@ -20,15 +20,15 @@ function List({ setError, setLoading, loading, setOpen, open }: ListProps) {
   const [page, setPage] = useState<number>(1);
 
   useEffect(() => {
-    getChars(page - 1)
-      .then((res) => {
-        if (!res.data) return Promise.reject(res.error);
-        setCharacters(res.data.characters);
-        setTotal(Math.floor(res.data.total / 20));
-      })
-      .catch(setError)
-      .finally(() => setLoading(false));
-    // setTimeout(() => setLoading(false), 500);
+    // getChars(page - 1)
+    //   .then((res) => {
+    //     if (!res.data) return Promise.reject(res.error);
+    //     setCharacters(res.data.characters);
+    //     setTotal(Math.floor(res.data.total / 20));
+    //   })
+    //   .catch(setError)
+    //   .finally(() => setLoading(false));
+    setTimeout(() => setLoading(false), 500);
   }, [page, setLoading, setError]);
 
   function handleChange(e: React.ChangeEvent<unknown>, pageNum: number) {
