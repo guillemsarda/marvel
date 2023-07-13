@@ -55,7 +55,7 @@ function InfoModal({ open, setOpen }: InfoModalProps) {
           </>
         ) : (
           <div className="modal__div_loader-wrapper">
-            <CircularProgress sx={{}} />
+            <CircularProgress />
           </div>
         )}
       </Box>

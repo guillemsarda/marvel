@@ -12,7 +12,7 @@ function Error({ error }: ErrorProps) {
         justifyContent: 'center',
       }}
     >
-      <h1 style={{fontWeight: '400'}}>{error}</h1>
+      <h1 style={{ fontWeight: '400' }}>{error}</h1>
     </main>
   );
 }
