@@ -1,8 +1,8 @@
 import '../Styles/ListItem.css';
 import { ImageListItem } from '@mui/material';
-import { ISimpleChar } from '../Utils/Interfaces';
+import { ISimpleChar } from '../utils/Interfaces';
 import { SyntheticEvent, useState } from 'react';
-import useStore from '../Utils/Store';
+import useStore from '../utils/Store';
 
 type ListItemProps = {
   character: ISimpleChar;

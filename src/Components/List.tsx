@@ -1,13 +1,13 @@
 import '../Styles/List.css';
 import { useEffect, useState } from 'react';
-import { ISimpleChar } from '../Utils/Interfaces';
+import { ISimpleChar } from '../utils/Interfaces';
 import {
   Backdrop,
   CircularProgress,
   ImageList,
   Pagination,
 } from '@mui/material';
-import { getChars } from '../Utils/ApiService';
+import { getChars } from '../utils/ApiService';
 import ListItem from './ListItem';
 
 type ListProps = {

@@ -1,6 +1,6 @@
 import '../Styles/InfoCard.css';
 import { Card, CardContent, CardMedia, Grid } from '@mui/material';
-import { ICharacters } from '../Utils/Interfaces';
+import { ICharacters } from '../utils/Interfaces';
 
 type InfoCardProps = {
   charInfo: ICharacters;
