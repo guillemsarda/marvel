@@ -1,7 +1,7 @@
 import './ListItem.css';
 import { ImageListItem } from '@mui/material';
 import { ISimpleChar } from '../Interfaces';
-import { useState } from 'react';
+import { SyntheticEvent, useState } from 'react';
 
 type ListItemProps = {
   character: ISimpleChar;
@@ -12,8 +12,9 @@ function ListItem({ character, handleClick }: ListItemProps) {
   const isAvailable = !character.thumbnail.path.includes('not_available');
   const [showHeader, setShowHeader] = useState<boolean>(!isAvailable);
 
-  function handleMouseMove() {
-    isAvailable && setShowHeader(!showHeader);
+  function handleMouseMove(e: SyntheticEvent) {
+    if (isAvailable && e.type === 'mouseover') setShowHeader(true);
+    else if (isAvailable && e.type === 'mouseout') setShowHeader(false);
   }
 
   return (
