@@ -1,5 +1,7 @@
 import { Modal } from '@mui/base';
 import { Box } from '@mui/material';
+import useStore from '../utils/Store';
+import { useEffect } from 'react';
 
 type InfoModalProps = {
   open: boolean;
@@ -7,8 +9,19 @@ type InfoModalProps = {
 };
 
 function InfoModal({ open, setOpen }: InfoModalProps) {
+  const { storeStates, methods } = useStore();
+
+  useEffect(() => {
+    console.log(storeStates.modalId);
+  }, [storeStates]);
+
+  function onClose() {
+    setOpen(false);
+    methods.setModalId(null);
+  }
+
   return (
-    <Modal open={open} onClose={() => setOpen(false)}>
+    <Modal open={open} onClose={onClose}>
       <Box
         sx={{
           width: '50vw',
@@ -20,7 +33,9 @@ function InfoModal({ open, setOpen }: InfoModalProps) {
           transform: 'translate(-50%, -50%)',
         }}
       >
-        <button onClick={() => setOpen(false)}>CLOSE</button>
+        <button onClick={onClose}>CLOSE</button>
+        <h1 style={{ textAlign: 'center' }}>{storeStates.modalId}</h1>
+        <h1 style={{ textAlign: 'center' }}>Hey</h1>
         <h1 style={{ textAlign: 'center' }}>Hey</h1>
       </Box>
     </Modal>

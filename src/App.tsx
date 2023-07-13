@@ -10,7 +10,7 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [open, setOpen] = useState<boolean>(false);
-
+  
   function setView() {
     if (error) return <Error error={error} />;
     return (

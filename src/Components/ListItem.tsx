@@ -2,15 +2,22 @@ import './ListItem.css';
 import { ImageListItem } from '@mui/material';
 import { ISimpleChar } from '../Interfaces';
 import { SyntheticEvent, useState } from 'react';
+import useStore from '../utils/Store';
 
 type ListItemProps = {
   character: ISimpleChar;
-  handleClick: () => void;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-function ListItem({ character, handleClick }: ListItemProps) {
+function ListItem({ character, setOpen }: ListItemProps) {
   const isAvailable = !character.thumbnail.path.includes('not_available');
   const [showHeader, setShowHeader] = useState<boolean>(!isAvailable);
+  const { methods } = useStore();
+
+  function handleClick() {
+    setOpen(true);
+    methods.setModalId(character.id);
+  }
 
   function handleMouseMove(e: SyntheticEvent) {
     if (isAvailable && e.type === 'mouseover') setShowHeader(true);
