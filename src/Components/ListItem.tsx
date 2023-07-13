@@ -1,6 +1,6 @@
-import './ListItem.css';
+import '../Styles/ListItem.css';
 import { ImageListItem } from '@mui/material';
-import { ISimpleChar } from '../Interfaces';
+import { ISimpleChar } from '../utils/Interfaces';
 import { SyntheticEvent, useState } from 'react';
 import useStore from '../utils/Store';
 

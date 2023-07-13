@@ -4,7 +4,7 @@ import Footer from './Components/Footer';
 import Header from './Components/Header';
 import List from './Components/List';
 import Error from './Components/Error';
-import InfoModal from './Components/Modal';
+import InfoModal from './Components/InfoModal';
 
 function App() {
   const [error, setError] = useState<string | null>(null);

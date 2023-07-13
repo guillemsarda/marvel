@@ -1,6 +1,6 @@
-import './List.css';
+import '../Styles/List.css';
 import { useEffect, useState } from 'react';
-import { ISimpleChar } from '../Interfaces';
+import { ISimpleChar } from '../utils/Interfaces';
 import { mockChars } from '../utils/mocks';
 import { CircularProgress, ImageList, Pagination } from '@mui/material';
 import { getChars } from '../utils/ApiService';
@@ -49,13 +49,7 @@ function List({ setError, setLoading, loading, setOpen, open }: ListProps) {
         <>
           <ImageList sx={{ width: '80%' }} cols={5} rowHeight={100}>
             {characters.map((ch) => {
-              return (
-                <ListItem
-                  character={ch}
-                  key={ch.id}
-                  setOpen={setOpen}
-                />
-              );
+              return <ListItem character={ch} key={ch.id} setOpen={setOpen} />;
             })}
           </ImageList>
           <Pagination

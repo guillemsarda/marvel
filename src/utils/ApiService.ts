@@ -4,7 +4,7 @@ import {
   IHashify,
   IMarvelResponse,
   ISimpleChar,
-} from '../Interfaces';
+} from './Interfaces';
 const privKey = String(import.meta.env.VITE_PRIVATE_API_KEY);
 const pubKey = String(import.meta.env.VITE_PUBLIC_API_KEY);
 
