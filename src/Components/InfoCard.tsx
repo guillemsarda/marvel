@@ -1,6 +1,6 @@
 import '../Styles/InfoCard.css';
 import { Card, CardContent, CardMedia, Grid } from '@mui/material';
-import { ICharacters } from '../utils/Interfaces';
+import { ICharacters } from '../Utils/Interfaces';
 
 type InfoCardProps = {
   charInfo: ICharacters;
@@ -10,7 +10,11 @@ function InfoCard({ charInfo }: InfoCardProps) {
   return (
     <Card>
       <CardMedia
-        sx={{ height: 300, backgroundPosition: 'center', backgroundSize: 'cover' }}
+        sx={{
+          height: 300,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+        }}
         image={`${charInfo.thumbnail.path}.${charInfo.thumbnail.extension}`}
         title={charInfo.name}
       />

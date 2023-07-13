@@ -1,10 +1,10 @@
 import '../Styles/InfoModal.css';
 import { Modal } from '@mui/base';
 import { Box, CircularProgress } from '@mui/material';
-import useStore from '../utils/Store';
+import useStore from '../Utils/Store';
 import { useEffect, useState } from 'react';
-import { getCharInfo } from '../utils/ApiService';
-import { ICharacters } from '../utils/Interfaces';
+import { getCharInfo } from '../Utils/ApiService';
+import { ICharacters } from '../Utils/Interfaces';
 import InfoCard from './InfoCard';
 import xMark from '../assets/xmark-solid.svg';
 
