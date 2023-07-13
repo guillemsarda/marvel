@@ -12,7 +12,7 @@ function Header({ open }: HeaderProps) {
         pointerEvents: open ? 'none' : undefined,
       }}
     >
-      <img src="./Marvel_Logo.svg" height={'70%'} />
+      <img src="./Marvel_Logo.svg" height="70%" alt="Marvel Logo" />
       <h1>Wiki</h1>
     </header>
   );

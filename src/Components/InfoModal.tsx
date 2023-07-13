@@ -49,7 +49,7 @@ function InfoModal({ open, setOpen }: InfoModalProps) {
         {charInfo ? (
           <>
             <button className="modal__button_close" onClick={onClose}>
-              <img src={xMark} height={'100%'} />
+              <img src={xMark} height="100%" alt="Closing button" />
             </button>
             <InfoCard charInfo={charInfo} />
           </>

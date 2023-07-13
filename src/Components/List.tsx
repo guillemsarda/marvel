@@ -1,7 +1,6 @@
 import '../Styles/List.css';
 import { useEffect, useState } from 'react';
 import { ISimpleChar } from '../utils/Interfaces';
-import { mockChars } from '../utils/mocks';
 import {
   Backdrop,
   CircularProgress,
@@ -48,28 +47,30 @@ function List({ setError, setLoading, loading, setOpen, open }: ListProps) {
         pointerEvents: open ? 'none' : undefined,
       }}
     >
-      {loading ? (
-        <Backdrop sx={{ color: '#fff' }} open={loading}>
-          <CircularProgress />
-        </Backdrop>
-      ) : (
-        <>
-          <ImageList sx={{ width: '80%' }} cols={5} rowHeight={100}>
-            {characters.map((ch) => {
-              return <ListItem character={ch} key={ch.id} setOpen={setOpen} />;
-            })}
-          </ImageList>
-          <Pagination
-            color="secondary"
-            page={page}
-            onChange={handleChange}
-            count={total}
-            size="large"
-            sx={{ marginTop: '10px' }}
-            variant="outlined"
-          />
-        </>
-      )}
+      <ImageList sx={{ width: '80%' }} cols={5} rowHeight={100}>
+        {loading ? (
+          <Backdrop sx={{ color: '#fff' }} open={loading}>
+            <CircularProgress />
+          </Backdrop>
+        ) : (
+          characters.map((ch) => {
+            return <ListItem character={ch} key={ch.id} setOpen={setOpen} />;
+          })
+        )}
+      </ImageList>
+      <Pagination
+        color="secondary"
+        page={page}
+        onChange={handleChange}
+        count={total}
+        size="large"
+        sx={{
+          marginTop: '10px',
+          position: loading ? 'absolute' : 'initial',
+          bottom: loading ? '10vh' : '',
+        }}
+        variant="outlined"
+      />
     </main>
   );
 }
