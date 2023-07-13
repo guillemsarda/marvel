@@ -35,6 +35,9 @@ function List({ setError, setLoading, loading, setOpen, open }: ListProps) {
     setPage(pageNum);
   }
 
+  function handleClick() {
+    setOpen(true)
+  }
   return (
     <main
       className="list-container"
@@ -43,14 +46,13 @@ function List({ setError, setLoading, loading, setOpen, open }: ListProps) {
         pointerEvents: open ? 'none' : undefined,
       }}
     >
-      <button onClick={() => setOpen(true)}>HEEEY</button>
       {loading ? (
         <CircularProgress />
       ) : (
         <>
           <ImageList sx={{ width: '80%' }} cols={5} rowHeight={100}>
             {characters.map((ch) => {
-              return <ListItem character={ch} key={ch.id} />;
+              return <ListItem character={ch} key={ch.id} handleClick={handleClick}/>;
             })}
           </ImageList>
           <Pagination

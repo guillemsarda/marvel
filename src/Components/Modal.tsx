@@ -8,7 +8,7 @@ type InfoModalProps = {
 
 function InfoModal({ open, setOpen }: InfoModalProps) {
   return (
-    <Modal open={open} onClose={() => setOpen(false)} hideBackdrop={true}>
+    <Modal open={open} onClose={() => setOpen(false)}>
       <Box
         sx={{
           width: '50vw',
