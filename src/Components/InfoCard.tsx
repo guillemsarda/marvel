@@ -10,7 +10,7 @@ function InfoCard({ charInfo }: InfoCardProps) {
   return (
     <Card>
       <CardMedia
-        sx={{ height: 200 }}
+        sx={{ height: 300, backgroundPosition: 'center', backgroundSize: 'cover' }}
         image={`${charInfo.thumbnail.path}.${charInfo.thumbnail.extension}`}
         title={charInfo.name}
       />

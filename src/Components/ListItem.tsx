@@ -35,6 +35,7 @@ function ListItem({ character, setOpen }: ListItemProps) {
         onClick={handleClick}
         onMouseOver={handleMouseMove}
         onMouseOut={handleMouseMove}
+        onLoad={() => console.log('load')}
       ></button>
       <h2 className="list-item__header" style={{ opacity: showHeader ? 1 : 0 }}>
         {character.name}

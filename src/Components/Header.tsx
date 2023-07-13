@@ -1,8 +1,17 @@
 import '../Styles/Header.css';
 
-function Header() {
+type HeaderProps = {
+  open: boolean;
+};
+
+function Header({ open }: HeaderProps) {
   return (
-    <header>
+    <header
+      style={{
+        filter: open ? 'blur(10px)' : '',
+        pointerEvents: open ? 'none' : undefined,
+      }}
+    >
       <img src="./Marvel_Logo.svg" height={'70%'} />
       <h1>Wiki</h1>
     </header>

@@ -10,7 +10,7 @@ function App() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [open, setOpen] = useState<boolean>(false);
-  
+
   function setView() {
     if (error) return <Error error={error} />;
     return (
@@ -26,9 +26,9 @@ function App() {
 
   return (
     <div className="main">
-      <Header />
+      <Header open={open} />
       {setView()}
-      <Footer />
+      <Footer open={open} />
       <InfoModal open={open} setOpen={setOpen} />
     </div>
   );
