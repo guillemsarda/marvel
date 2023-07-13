@@ -1,7 +1,23 @@
-/* Overwritting default style */
-.modal__grid {
-  height: 100px;
+.modal__button_close {
+  height: 30px;
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: transparent;
+  border: none;
+}
+
+.modal__button_close img {
+  filter: invert(19%) sepia(100%) saturate(2873%) hue-rotate(346deg)
+    brightness(91%) contrast(103%);
+}
+
+.modal__div_loader-wrapper {
+  height: 50%;
   width: 100%;
-  margin: 0;
-  padding: 0;
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,19 +1,33 @@
+.modal__paragraph {
+  margin-top: 15px;
+  color: black;
+}
+
 .modal__grid-wrapper {
   display: flex;
   flex-direction: column;
   height: 30%;
+  margin-top: 15px;
 }
 
 .modal__grid-wrapper_header {
-  color: black;
+  color: var(--red);
   height: 30%;
   width: 100%;
   font-size: 20px;
   font-weight: 500;
 }
 
+/* Overwritting default style */
+.modal__grid {
+  height: 100px;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
 .modal__grid-item {
   padding: 10px !important;
+  margin: 0 !important;
 }
 
 .modal__grid-item h3 {

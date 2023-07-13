@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { getCharInfo } from '../utils/ApiService';
 import { ICharacters } from '../utils/Interfaces';
 import InfoCard from './InfoCard';
+import xMark from '../assets/xmark-solid.svg';
 
 type InfoModalProps = {
   open: boolean;
@@ -45,8 +46,18 @@ function InfoModal({ open, setOpen }: InfoModalProps) {
           transform: 'translate(-50%, -50%)',
         }}
       >
-        <button onClick={onClose}>CLOSE</button>
-        {charInfo ? <InfoCard charInfo={charInfo} /> : <CircularProgress />}
+        {charInfo ? (
+          <>
+            <button className="modal__button_close" onClick={onClose}>
+              <img src={xMark} height={'100%'} />
+            </button>
+            <InfoCard charInfo={charInfo} />
+          </>
+        ) : (
+          <div className="modal__div_loader-wrapper">
+            <CircularProgress sx={{}} />
+          </div>
+        )}
       </Box>
     </Modal>
   );

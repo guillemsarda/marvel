@@ -14,11 +14,11 @@ function InfoCard({ charInfo }: InfoCardProps) {
         image={`${charInfo.thumbnail.path}.${charInfo.thumbnail.extension}`}
         title={charInfo.name}
       />
-      <CardContent>
-        <h1 style={{ textAlign: 'center', color: 'black' }}>{charInfo.name}</h1>
-        <p style={{ textAlign: 'center', color: 'black' }}>
-          {charInfo.description}
-        </p>
+      <CardContent sx={{ padding: '25px' }}>
+        <h1 style={{ textAlign: 'center', color: 'var(--red)' }}>
+          {charInfo.name}
+        </h1>
+        <p className="modal__paragraph">{charInfo.description}</p>
         <div className="modal__grid-wrapper">
           <h2 className="modal__grid-wrapper_header">Comics:</h2>
           <Grid
@@ -27,7 +27,7 @@ function InfoCard({ charInfo }: InfoCardProps) {
             spacing={{ md: 2 }}
             columns={{ xs: 4, sm: 8, md: 12 }}
             sx={{
-              overflow: 'scroll',
+              overflowY: 'scroll',
             }}
           >
             {charInfo.comics.items.map((comic, index) => (
